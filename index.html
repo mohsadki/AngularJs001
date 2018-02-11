@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="msed">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Simple à trouver</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+
+  <body ng-app class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Simple à trouver</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#">Machines</a>
+            <a class="nav-link" href="#">Segments</a>
+            <a class="nav-link" href="#">Rubriques</a>
+          </nav>
+        </div>
+      </header>
+      <main role="main" class="inner cover">
+        <h1>
+          <input type="text" ng-model="val"/>
+        </h1>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Trier par</label>
+          </div>
+          <select class="custom-select" ng-model="order">
+            <option selected value="+site">Site</option>
+            <option value="+adresse">Adresse</option>
+          </select>
+        </div>
+        <div class="text-left" ng-init="machines=[{site:'Maroc',adresse:'Parva00220'},{site:'Algérie',adresse:'Parva00330'},{site:'Tunisie',adresse:'Parva00660'},
+        {site:'Réunion',adresse:'Parva004550'},{site:'Nouvelle Calédonie',adresse:'Parva00990'},{site:'Antilles',adresse:'Parva00770'}]">
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="machine in machines | filter:val | orderBy:order"><strong>{{machine.site}}</strong> {{machine.adresse}}</li>
+          </ul>
+        </div>
+      </main>
+
+      <footer class="mastfoot">
+        <div class="inner">
+          <p>by msed</p>
+        </div>
+      </footer>
+    </div>
+    <!-- Bootstrap core + angular JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/angular.min.js"></script>
+    <script src="/js/jquery-slim.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
